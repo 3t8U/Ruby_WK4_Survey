@@ -44,14 +44,16 @@ RANDOM COMMANDS :::::::::
       gem 'launchy'
       gem 'pry'
     end
+                                      to Gemfile  
 
-    group :development do  
 
-    to Gemfile  
+
 
 * bundle exec rails generate rspec:install (in Terminal)
 
+
 * run rails server in Root dir of project [rails s]
+
 
 * rake db:create
 
@@ -89,7 +91,7 @@ RANDOM COMMANDS :::::::::
   }
 
 
-
+    ---->  t.integer :product_id  <-------  Don't forget!!
 
 * in new migration, set up relationship between Class1 and Class2
 "rails g migration add_foreign_key_for_[class2]"
@@ -132,17 +134,17 @@ RANDOM COMMANDS :::::::::
             require 'rails_helper'
 
             describe Album do
-              it { should have_many(:songs) }
+              it { should have_many :songs }
             end                                          
-                                            to spec/models/song_spec.rb
+                                            to spec/models/album_spec.rb
 
 * Add
          require 'rails_helper'
 
          describe Album do
-           it { should have_many(:songs) }
+           it { should belong_to :albums }
          end                                          
-                                to spec/models/song_spec.rb
+                                        to spec/models/song_spec.rb
 
 
 
@@ -198,7 +200,7 @@ RANDOM COMMANDS :::::::::
 
 
 
-* Check routes in terminal      (rake routes)                               
+* Check routes in terminal     (rake routes)                               
 
 * Add  "app/controllers/[class]s_controller.rb"  file
 
@@ -215,7 +217,19 @@ RANDOM COMMANDS :::::::::
      show.html.erb
 
 
+* Add _errors.html.erb
 
+<% if object.errors.any? %>
+  <h3>Please fix these errors:</h3>
+  <ul>
+    <% object.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+                                      to apps/views/layouts
+
+                                      
 
   *Add      _[class]_form.html.erb" (w/ underscores)
 
